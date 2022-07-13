@@ -1,20 +1,51 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style = {styles.logInContainer}>
       <StatusBar style="auto" />
-    </View>
+      <View>
+        <TextInput style = {styles.logInTextInput}
+          placeholder = "Username"
+        />
+
+        <TextInput style = {styles.logInTextInput}
+          secureTextEntry = {true}
+          placeholder = "Password"
+        />
+
+        <Button
+          color = "black"
+          title = "Login"
+          onPress={ () => console.log("pressed")}
+          style = {styles.logInButton}
+        />
+      </View>
+      
+    </SafeAreaView>
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  logInButton: {
+    borderRadius: 10
   },
+  logInTextInput:{
+    height: 50,
+    width : 300,
+    borderWidth: 1,
+    padding: 10,
+    margin: 10,
+    fontSize: 20,
+
+  },
+  logInContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign : 'center',
+    
+  }
 });
